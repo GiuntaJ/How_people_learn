@@ -115,7 +115,60 @@ def MCQQuestion5():
 def MCQQuestion6():
     q6_options = ["A", "B", "C", "D", "E"]
     q6_answer = "B"
-    q6_explanation = "TODO"
+    q6_explanation = """To be able to understand what happened we need to decompose the movement into 3 phases:
+<ol>
+	<li> <u>Before the shock</u>: the puck is sliding on the horizontal surface at a constant velocity  <math xmlns="http://www.w3.org/1998/Math/MathML">
+  <msub>
+    <mrow>
+      <mover>
+        <mi>V</mi>
+        <mo stretchy="false">&#x2192;</mo>
+      </mover>
+    </mrow>
+    <mi>o</mi>
+  </msub>
+</math>  with no acceleration </li>
+	<li> <u>During the shock</u>: The energy of the kick is entirely transferred to the puck in a form of a velocity <math xmlns="http://www.w3.org/1998/Math/MathML">
+  <mrow>
+    <mover>
+      <mi>V</mi>
+      <mo stretchy="false">&#x2192;</mo>
+    </mover>
+  </mrow>
+</math>, it receives an instantaneous vertical upwards acceleration </li>
+	<li> <u>After the shock</u>: The puck stops accelerating from the shock in the upward direction and since the velocity of the push is only vertical and upwards (thus perpendicular to the initial velocity <math xmlns="http://www.w3.org/1998/Math/MathML">
+  <msub>
+    <mrow>
+      <mover>
+        <mi>V</mi>
+        <mo stretchy="false">&#x2192;</mo>
+      </mover>
+    </mrow>
+    <mi>o</mi>
+  </msub>
+</math>  its new velocity is thus the sum of <math xmlns="http://www.w3.org/1998/Math/MathML">
+  <msub>
+    <mrow>
+      <mover>
+        <mi>V</mi>
+        <mo stretchy="false">&#x2192;</mo>
+      </mover>
+    </mrow>
+    <mi>o</mi>
+  </msub>
+</math>  and <math xmlns="http://www.w3.org/1998/Math/MathML">
+  <mrow>
+    <mover>
+      <mi>V</mi>
+      <mo stretchy="false">&#x2192;</mo>
+    </mover>
+  </mrow>
+</math></li>
+</ol>
+
+<b>Why it’s not D</b> : This case assumes that the puck went into a circular motion which is not true because the latter needs a continuous acceleration towards a center point that continuously pulls the puck. 
+Since the puck is not attached to anything this movement is not possible  """
+    
     q6_solution_gif = "Gifs/solution.gif"
     q6 = create_multipleChoice_widget(q6_options, q6_answer, q6_explanation, q6_solution_gif)
     display(q6)
@@ -127,7 +180,78 @@ def MCQQuestion7():
         'Smaller than either of speeds “Vo” or “V”.', \
         'Greater than either of speeds “Vo” or “V”, but smaller than the arithmetic sum of these two speeds.']
     q7_answer = 'Greater than either of speeds “Vo” or “V”, but smaller than the arithmetic sum of these two speeds.'
-    q7_explanation = "TODO"
+    q7_explanation = """The speeds <math xmlns="http://www.w3.org/1998/Math/MathML">
+  <msub>
+    <mi>V</mi>
+    <mi>o</mi>
+  </msub>
+</math>
+and <math xmlns="http://www.w3.org/1998/Math/MathML">
+  <mi>V</mi>
+</math> are both the norms of the corresponding velocity vectors <math xmlns="http://www.w3.org/1998/Math/MathML">
+  <msub>
+    <mrow>
+      <mover>
+        <mi>V</mi>
+        <mo stretchy="false">&#x2192;</mo>
+      </mover>
+    </mrow>
+    <mi>o</mi>
+  </msub>
+</math>
+and <math xmlns="http://www.w3.org/1998/Math/MathML">
+  <mrow>
+    <mover>
+      <mi>V</mi>
+      <mo stretchy="false">&#x2192;</mo>
+    </mover>
+  </mrow>
+</math>
+
+<br/>
+
+The new speed is thus the norm <math xmlns="http://www.w3.org/1998/Math/MathML">
+  <mo stretchy="false">|</mo>
+  <mrow>
+    <mo stretchy="false">|</mo>
+  </mrow>
+  <msub>
+    <mrow>
+      <mover>
+        <mi>V</mi>
+        <mo stretchy="false">&#x2192;</mo>
+      </mover>
+    </mrow>
+    <mi>o</mi>
+  </msub>
+  <mo>+</mo>
+  <mrow>
+    <mover>
+      <mi>V</mi>
+      <mo stretchy="false">&#x2192;</mo>
+    </mover>
+  </mrow>
+  <mrow>
+    <mo stretchy="false">|</mo>
+  </mrow>
+  <mo stretchy="false">|</mo>
+</math>
+and because of the fact that both of the velocities are either entirely vertical or entirely horizontal it's computed using this formula : <math xmlns="http://www.w3.org/1998/Math/MathML">
+  <msqrt>
+    <msubsup>
+      <mi>V</mi>
+      <mi>o</mi>
+      <mn>2</mn>
+    </msubsup>
+    <mo>+</mo>
+    <msup>
+      <mi>V</mi>
+      <mn>2</mn>
+    </msup>
+  </msqrt>
+</math>
+<br/>You can then easily verify that only the last property holds 
+"""
     q7_solution_gif = "Gifs/solution.gif"
     q7 = create_multipleChoice_widget(q7_options, q7_answer, q7_explanation, q7_solution_gif)
     display(q7)
@@ -135,7 +259,13 @@ def MCQQuestion7():
 def MCQQuestion8():
     q24_options = ["A", "B", "C", "D", "E"]
     q24_answer = "E"
-    q24_explanation = "TODO"
+    q24_explanation = """To be able to understand what happened we need to decompose the movement into 3 phases :
+    <ol>
+<li><u>From a to b</u>: The rocket is moving at constant speed with no force acting on it</li>
+<li><u>At b</u>: The engine of the rocket started providing an upward vertical acceleration perpendicular to the original speed </li>
+<li><u>Fom b to c</u>: The rocket kept accelerating upwards and in the same time kept sliding constantly and horizontally in the right direction which explains </li></ol>
+
+<b>Why it’s not D </b> : This case assumes that the rocket started accelerating a few moments after turning on its engine which wrong because the thrust has an immediate effect on the rocket"""
     q24_solution_gif = "Gifs/solution.gif"
     q24 = create_multipleChoice_widget(q24_options, q24_answer, q24_explanation, q24_solution_gif)
     display(q24)
