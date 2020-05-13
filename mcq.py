@@ -301,7 +301,7 @@ def MCQQuestion8():
 <li><u>Fom b to c</u>: The rocket kept accelerating upwards and in the same time kept sliding constantly and horizontally in the right direction which explains </li></ol>
 
 <b>Why it’s not D </b> : This case assumes that the rocket started accelerating a few moments after turning on its engine which wrong because the thrust has an immediate effect on the rocket"""
-    q24_solution_gif = "Gifs/solution.gif"
+    q24_solution_gif = "Gifs/p8.gif"
     q24 = create_multipleChoice_widget(q24_options, q24_answer, q24_explanation, q24_solution_gif)
     display(q24)
 
@@ -309,6 +309,6 @@ def MCQQuestion9():
     q26_options = ["A", "B", "C", "D", "E"]
     q26_answer = "B"
     q26_explanation = "TODO"
-    q26_solution_gif = "Gifs/solution.gif"
+    q26_solution_gif = "Gifs/p9.gif"
     q26 = create_multipleChoice_widget(q26_options, q26_answer, q26_explanation, q26_solution_gif)
     display(q26)
