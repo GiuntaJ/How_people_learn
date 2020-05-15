@@ -185,7 +185,7 @@ def create_multipleChoice_widget(options, correct_answer, explanation, explanati
                     layout=widgets.Layout(height='auto', width='auto'))
         else:
             answer = widgets.Button(
-                    description="Wrong answer.",
+                    description="Wrong answer. The answer was : " + correct_answer[0:2],
                     disabled=True,
                     button_style='danger',
                     layout=widgets.Layout(height='auto', width='auto'))
@@ -194,7 +194,7 @@ def create_multipleChoice_widget(options, correct_answer, explanation, explanati
             display_explanation(answer, explanation, explanation_gif)
         return
     
-    check = widgets.Button(description="submit")
+    check = widgets.Button(description="Submit")
     check.on_click(check_selection)
     
     
@@ -202,21 +202,68 @@ def create_multipleChoice_widget(options, correct_answer, explanation, explanati
 
 def display_explanation(answer, explanation, explanation_gif):
     expl = widgets.HTML(
-        value=explanation,
+        value='<p style="text-align:justify;font-size:16px;margin-right:5px">' + explanation + '</p>',
         placeholder='',
         description= '')
+    expl.layout.align_content='center'
     file = open(explanation_gif, "rb")
     image = file.read()
     gif = widgets.Image(
         value=image,
-        format='gif',
-        height=400)
+        format=explanation[-3:],
+        layout=widgets.Layout(width='auto', height='auto'))
+    gif.layout.width = '100%'
     output = widgets.AppLayout(header=answer,
           left_sidebar=expl,
           center=None,
           right_sidebar=gif,
-          footer=None)
+          footer=None,
+          width="100%",
+          pane_widths=[2, 0, 3],
+          pane_heights=[1, 5, 0])
     display(output)
+    
+def TestQuestion():
+    options = ["YES! I get how to use this notebook!", "No... I did not understand."]
+    correct_answer_index = 0
+    
+    radio_options = [(words, i) for i, words in enumerate(options)]
+    alternativ = widgets.RadioButtons(
+        options = radio_options,
+        description = '',
+        layout={'width': 'max-content'},
+        disabled = False
+    )
+    feedback_out = widgets.Output()
+
+    def check_selection(b):
+        a = int(alternativ.value)
+        if a==correct_answer_index:
+            answer = widgets.Button(
+                    description="Well done!",
+                    disabled=True,
+                    button_style='success',
+                    layout=widgets.Layout(height='auto', width='auto'))
+            explanation = "You can go to the next question. Good luck!"
+            gif = "Gifs/thumbs_up.gif"
+        else:
+            answer = widgets.Button(
+                    description="But... you successfully launched the question!",
+                    disabled=True,
+                    button_style='danger',
+                    layout=widgets.Layout(height='auto', width='auto'))
+            explanation = "Do just as you did now for the next questions, and it will be fine. Good luck!"
+            gif = "Gifs/troll_answer.gif"
+        with feedback_out:
+            clear_output()
+            display_explanation(answer, explanation, gif)
+        return
+    
+    check = widgets.Button(description="Submit")
+    check.on_click(check_selection)
+    
+    
+    return widgets.VBox([alternativ, check, feedback_out])
 
 def MCQQuestion1():
     q4_options = ["A", "B", "C", "D"]
@@ -230,7 +277,7 @@ def MCQQuestion1():
                 "in this case when the string breaks, <b>the object moves in the direction " + \
                 "of the velocity at that instant</b>. This direction is <b>tangential</b> " + \
                 "to the circle at that point."
-    q4_solution_gif = "Gifs/solution.gif"
+    q4_solution_gif = "Gifs/GifProblem4_2.gif"
     q4 = create_multipleChoice_widget(q4_options, q4_answer, q4_explanation, q4_solution_gif)
     display(q4)
     
@@ -238,35 +285,35 @@ def MCQQuestion2():
     q18_options = ["A", "B", "C", "D", "E"]
     q18_answer = "B"
     q18_explanation = "If the elevator is moving with <b>constant velocity</b>, the <b>net force must be zero (no acceleration)</b>. In order for the net force on the elevator to be zero, the upward and downward <b>forces must cancel</b> exactly."
-    q18_solution_gif = "Gifs/solution.gif"
+    q18_solution_gif = "Gifs/GifProblem18.gif"
     q18 = create_multipleChoice_widget(q18_options, q18_answer, q18_explanation, q18_solution_gif)
     display(q18)
 
 def MCQQuestion3():
-    q22_options = ["1 only", "1 and 2", "1, 2 and 3", "1 and 3", "2 and 3"]
-    q22_answer = "1 and 3"
+    q22_options = ["A. 1 only", "B. 1 and 2", "C. 1, 2 and 3", "D. 1 and 3", "E. 2 and 3"]
+    q22_answer = "D. 1 and 3"
     q22_explanation = "The <i>hit</i> force is applied only for a short period during the <i>hit</i> and it gives the ball an <b>initial velocity</b>. Once the ball is <b>in flight</b>, the only forces acting on it are the <b>gravity</b>, which <b>accelerates</b> the ball <b>downwards</b>, and <b>air resistance</b>, which <b>decelerates</b> the ball."
-    q22_solution_gif = "Gifs/solution.gif"
+    q22_solution_gif = "Gifs/p22.gif"
     q22 = create_multipleChoice_widget(q22_options, q22_answer, q22_explanation, q22_solution_gif)
     display(q22)
 
 def MCQQuestion4():
-    q23_options = ["A", "B", "C", "D"]
+    q23_options = ["A", "B", "C", "D", "E"]
     q23_answer = "D"
-    q23_explanation = "As soon as the bowling ball leaves the plane, the <b>horizontal velocity is the same as the one of the plane</b> and the <b>vertical velocity is zero</b>. From that point onwards, the only forces acting on it are the <b>gravity</b> and the <b>air resistance</b>. The trajectory is therefore a <b>parabola</b>. The ball falling out of the plane is equivalent to throwing the ball with an initial horizontal velocity."
-    q23_solution_gif = "Gifs/solution.gif"
+    q23_explanation = "As soon as the bowling ball leaves the plane, the <b>horizontal velocity is the same as the one of the plane</b> and the <b>vertical velocity is zero</b>. From that point onwards, the only force acting on it is <b>gravity</b>. The trajectory is therefore a <b>parabola</b>. An equivalent example of the bowling ball falling out of the plane is throwing a ball with an initial horizontal velocity."
+    q23_solution_gif = "Gifs/p23.gif"
     q23 = create_multipleChoice_widget(q23_options, q23_answer, q23_explanation, q23_solution_gif)
     display(q23)
 
 def MCQQuestion5():
-    q28_options = ["If the force applied to the box is doubled, the constant speed of the box will increase to 8.0 m/s.", \
-        "The amount of force applied to move the box at a constant speed must be more than its weight.", \
-        "The amount of force applied to move the box at a constant speed must be equal to the amount of the frictional forces that resist its motion.", \
-        "The amount of force applied to move the box at a constant speed must be more than the amount of the frictional forces that resist its motion.", \
-        'There is a force being applied to the box to make it move but the external forces such as friction are not "real" forces, they just resist motion.']
-    q28_answer = "The amount of force applied to move the box at a constant speed must be equal to the amount of the frictional forces that resist its motion."
+    q28_options = ["A. If the force applied to the box is doubled, the constant speed of the box will increase to 8.0 m/s.", \
+        "B. The amount of force applied to move the box at a constant speed must be more than its weight.", \
+        "C. The amount of force applied to move the box at a constant speed must be equal to the amount of the frictional forces that resist its motion.", \
+        "D. The amount of force applied to move the box at a constant speed must be more than the amount of the frictional forces that resist its motion.", \
+        'E. There is a force being applied to the box to make it move but the external forces such as friction are not "real" forces, they just resist motion.']
+    q28_answer = "C. The amount of force applied to move the box at a constant speed must be equal to the amount of the frictional forces that resist its motion."
     q28_explanation = "The box going at <b>constant speed</b>, means that the <b>acceleration is zero</b> and from the <b>second law of Newton</b>, it follows that the <b>sum of forces is also zero</b>."
-    q28_solution_gif = "Gifs/solution.gif"
+    q28_solution_gif = "Gifs/p28.png"
     q28 = create_multipleChoice_widget(q28_options, q28_answer, q28_explanation, q28_solution_gif)
     display(q28)
 
@@ -275,19 +322,19 @@ def MCQQuestion6():
     q6_answer = "B"
     q6_explanation = question6_explanation
     
-    q6_solution_gif = "Gifs/solution.gif"
+    q6_solution_gif = "Gifs/GifProblem6.gif"
     q6 = create_multipleChoice_widget(q6_options, q6_answer, q6_explanation, q6_solution_gif)
     display(q6)
 
 def MCQQuestion7():
-    q7_options = ['Equal to the speed “Vo” it had before it received the “kick”.', \
-        'Equal to the speed “V” it acquires from the “kick”, and independent of the speed “Vo”.', \
-        'Equal to the arithmetic sum of speeds “Vo” and “V”.', \
-        'Smaller than either of speeds “Vo” or “V”.', \
-        'Greater than either of speeds “Vo” or “V”, but smaller than the arithmetic sum of these two speeds.']
-    q7_answer = 'Greater than either of speeds “Vo” or “V”, but smaller than the arithmetic sum of these two speeds.'
+    q7_options = ['A. Equal to the speed “Vo” it had before it received the “kick”.', \
+        'B. Equal to the speed “V” it acquires from the “kick”, and independent of the speed “Vo”.', \
+        'C. Equal to the arithmetic sum of speeds “Vo” and “V”.', \
+        'D. Smaller than either of speeds “Vo” or “V”.', \
+        'E. Greater than either of speeds “Vo” or “V”, but smaller than the arithmetic sum of these two speeds.']
+    q7_answer = 'E. Greater than either of speeds “Vo” or “V”, but smaller than the arithmetic sum of these two speeds.'
     q7_explanation = question7_explanation
-    q7_solution_gif = "Gifs/solution.gif"
+    q7_solution_gif = "Gifs/GifProblem6.gif"
     q7 = create_multipleChoice_widget(q7_options, q7_answer, q7_explanation, q7_solution_gif)
     display(q7)
 
