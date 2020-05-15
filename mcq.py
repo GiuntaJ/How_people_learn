@@ -300,7 +300,7 @@ def MCQQuestion3():
 def MCQQuestion4():
     q23_options = ["A", "B", "C", "D", "E"]
     q23_answer = "D"
-    q23_explanation = "As soon as the bowling ball leaves the plane, the <b>horizontal velocity is the same as the one of the plane</b> and the <b>vertical velocity is zero</b>. From that point onwards, the only forces acting on it are the <b>gravity</b> and the <b>air resistance</b>. The trajectory is therefore a <b>parabola</b>. The ball falling out of the plane is equivalent to throwing the ball with an initial horizontal velocity."
+    q23_explanation = "As soon as the bowling ball leaves the plane, the <b>horizontal velocity is the same as the one of the plane</b> and the <b>vertical velocity is zero</b>. From that point onwards, the only force acting on it is <b>gravity</b>. The trajectory is therefore a <b>parabola</b>. An equivalent example of the bowling ball falling out of the plane is throwing a ball with an initial horizontal velocity."
     q23_solution_gif = "Gifs/p23.gif"
     q23 = create_multipleChoice_widget(q23_options, q23_answer, q23_explanation, q23_solution_gif)
     display(q23)
