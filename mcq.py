@@ -185,7 +185,7 @@ def create_multipleChoice_widget(options, correct_answer, explanation, explanati
                     layout=widgets.Layout(height='auto', width='auto'))
         else:
             answer = widgets.Button(
-                    description="Wrong answer.",
+                    description="Wrong answer. The answer was : " + correct_answer[0:2],
                     disabled=True,
                     button_style='danger',
                     layout=widgets.Layout(height='auto', width='auto'))
@@ -277,7 +277,7 @@ def MCQQuestion1():
                 "in this case when the string breaks, <b>the object moves in the direction " + \
                 "of the velocity at that instant</b>. This direction is <b>tangential</b> " + \
                 "to the circle at that point."
-    q4_solution_gif = "Gifs/solution.gif"
+    q4_solution_gif = "Gifs/GifProblem4_2.gif"
     q4 = create_multipleChoice_widget(q4_options, q4_answer, q4_explanation, q4_solution_gif)
     display(q4)
     
@@ -285,13 +285,13 @@ def MCQQuestion2():
     q18_options = ["A", "B", "C", "D", "E"]
     q18_answer = "B"
     q18_explanation = "If the elevator is moving with <b>constant velocity</b>, the <b>net force must be zero (no acceleration)</b>. In order for the net force on the elevator to be zero, the upward and downward <b>forces must cancel</b> exactly."
-    q18_solution_gif = "Gifs/solution.gif"
+    q18_solution_gif = "Gifs/GifProblem18.gif"
     q18 = create_multipleChoice_widget(q18_options, q18_answer, q18_explanation, q18_solution_gif)
     display(q18)
 
 def MCQQuestion3():
-    q22_options = ["1 only", "1 and 2", "1, 2 and 3", "1 and 3", "2 and 3"]
-    q22_answer = "1 and 3"
+    q22_options = ["A. 1 only", "B. 1 and 2", "C. 1, 2 and 3", "D. 1 and 3", "E. 2 and 3"]
+    q22_answer = "D. 1 and 3"
     q22_explanation = "The <i>hit</i> force is applied only for a short period during the <i>hit</i> and it gives the ball an <b>initial velocity</b>. Once the ball is <b>in flight</b>, the only forces acting on it are the <b>gravity</b>, which <b>accelerates</b> the ball <b>downwards</b>, and <b>air resistance</b>, which <b>decelerates</b> the ball."
     q22_solution_gif = "Gifs/p22.gif"
     q22 = create_multipleChoice_widget(q22_options, q22_answer, q22_explanation, q22_solution_gif)
@@ -306,12 +306,12 @@ def MCQQuestion4():
     display(q23)
 
 def MCQQuestion5():
-    q28_options = ["If the force applied to the box is doubled, the constant speed of the box will increase to 8.0 m/s.", \
-        "The amount of force applied to move the box at a constant speed must be more than its weight.", \
-        "The amount of force applied to move the box at a constant speed must be equal to the amount of the frictional forces that resist its motion.", \
-        "The amount of force applied to move the box at a constant speed must be more than the amount of the frictional forces that resist its motion.", \
-        'There is a force being applied to the box to make it move but the external forces such as friction are not "real" forces, they just resist motion.']
-    q28_answer = "The amount of force applied to move the box at a constant speed must be equal to the amount of the frictional forces that resist its motion."
+    q28_options = ["A. If the force applied to the box is doubled, the constant speed of the box will increase to 8.0 m/s.", \
+        "B. The amount of force applied to move the box at a constant speed must be more than its weight.", \
+        "C. The amount of force applied to move the box at a constant speed must be equal to the amount of the frictional forces that resist its motion.", \
+        "D. The amount of force applied to move the box at a constant speed must be more than the amount of the frictional forces that resist its motion.", \
+        'E. There is a force being applied to the box to make it move but the external forces such as friction are not "real" forces, they just resist motion.']
+    q28_answer = "C. The amount of force applied to move the box at a constant speed must be equal to the amount of the frictional forces that resist its motion."
     q28_explanation = "The box going at <b>constant speed</b>, means that the <b>acceleration is zero</b> and from the <b>second law of Newton</b>, it follows that the <b>sum of forces is also zero</b>."
     q28_solution_gif = "Gifs/p28.png"
     q28 = create_multipleChoice_widget(q28_options, q28_answer, q28_explanation, q28_solution_gif)
@@ -322,19 +322,19 @@ def MCQQuestion6():
     q6_answer = "B"
     q6_explanation = question6_explanation
     
-    q6_solution_gif = "Gifs/solution.gif"
+    q6_solution_gif = "Gifs/GifProblem6.gif"
     q6 = create_multipleChoice_widget(q6_options, q6_answer, q6_explanation, q6_solution_gif)
     display(q6)
 
 def MCQQuestion7():
-    q7_options = ['Equal to the speed “Vo” it had before it received the “kick”.', \
-        'Equal to the speed “V” it acquires from the “kick”, and independent of the speed “Vo”.', \
-        'Equal to the arithmetic sum of speeds “Vo” and “V”.', \
-        'Smaller than either of speeds “Vo” or “V”.', \
-        'Greater than either of speeds “Vo” or “V”, but smaller than the arithmetic sum of these two speeds.']
-    q7_answer = 'Greater than either of speeds “Vo” or “V”, but smaller than the arithmetic sum of these two speeds.'
+    q7_options = ['A. Equal to the speed “Vo” it had before it received the “kick”.', \
+        'B. Equal to the speed “V” it acquires from the “kick”, and independent of the speed “Vo”.', \
+        'C. Equal to the arithmetic sum of speeds “Vo” and “V”.', \
+        'D. Smaller than either of speeds “Vo” or “V”.', \
+        'E. Greater than either of speeds “Vo” or “V”, but smaller than the arithmetic sum of these two speeds.']
+    q7_answer = 'E. Greater than either of speeds “Vo” or “V”, but smaller than the arithmetic sum of these two speeds.'
     q7_explanation = question7_explanation
-    q7_solution_gif = "Gifs/solution.gif"
+    q7_solution_gif = "Gifs/GifProblem6.gif"
     q7 = create_multipleChoice_widget(q7_options, q7_answer, q7_explanation, q7_solution_gif)
     display(q7)
 
