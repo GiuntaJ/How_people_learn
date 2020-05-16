@@ -257,7 +257,7 @@ def MCQQuestion7():
         'Greater than either of speeds “Vo” or “V”, but smaller than the arithmetic sum of these two speeds.']
     q7_answer = 'Greater than either of speeds “Vo” or “V”, but smaller than the arithmetic sum of these two speeds.'
     q7_explanation = question7_explanation
-    q7_solution_gif = "Gifs/solution.gif"
+    q7_solution_gif = "Gifs/p7.png"
     q7 = create_multipleChoice_widget(q7_options, q7_answer, q7_explanation, q7_solution_gif)
     display(q7)
 
